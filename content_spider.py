@@ -15,12 +15,19 @@ class ContentSpider(scrapy.Spider):
             if counter < 11:
                 list1 = content.css('span.yRv1-text::text').extract()
                 list_to_string = ",".join(list1)
-                SET_SELECTOR = ''
+                demo = content.xpath('a/img/@src').get()
+                if demo is None:
+                    demo = content.xpath('a/span/text()').get()
+                    print(demo)
+                else:
+                    print(demo)
+                # ,
+                # 'image_link': content.xpath('//a[@class="soom-photo-wrapper"]').css('img::attr(src)').get(),
                 yield {
+                    'image_link': content.xpath('a/img/@src').get(),
                     'title': content.xpath('div/div/div/a/span/text()').get(),
                     'ratings': content.xpath('div/div/div/div/span/text()').get(),
                     'location': content.css('span.soom-neighborhood::text').get(),
-                    'image_link': content.xpath('//a[@class="soom-photo-wrapper"]').css('img::attr(src)').get(),
                     'amenities': list_to_string,
                     'price': content.css('span.soom-price::text').get(),
                 }
