@@ -9,12 +9,26 @@ class ContentSpider(scrapy.Spider):
     # ihbo
 
     def parse(self, response):
+        counter=1
         for content in response.css('div.soom'):
-            yield {
-                'title': content.xpath('div/div/div/a/span/text()').get(),
-                'ratings': content.xpath('div/div/div/div/span/text()').get(),
-                'location': content.css('span.soom-neighborhood::text').get(),
-            }
+            # amen = content.css('span.yRv1-text').extract()
+            if counter < 11:
+                list1 = content.css('span.yRv1-text::text').extract()
+                list_to_string = ",".join(list1)
+                SET_SELECTOR = ''
+                yield {
+                    'title': content.xpath('div/div/div/a/span/text()').get(),
+                    'ratings': content.xpath('div/div/div/div/span/text()').get(),
+                    'location': content.css('span.soom-neighborhood::text').get(),
+                    'image_link': content.xpath('//a[@class="soom-photo-wrapper"]').css('img::attr(src)').get(),
+                    'amenities': list_to_string,
+                    'price': content.css('span.soom-price::text').get(),
+                }
+                counter += 1
+            else:
+                break
+
+
 
         next_page = response.css('li.next a::attr("href")').get()
         if next_page is not None:
