@@ -3,20 +3,20 @@ Disclaimer: The OS & browser used for this project is Ubuntu Firefox, so the opt
 #Task
 - [x] how to limit number of scraps
 - [x] how toi take image src
-- [x] how to extract and then join themk with a string.
+- [x] how to extract and then join them with a string.
 - [x] how to take image link when the class name varies
 - [x] How to get all images
-- [ ] How to skip the element which has no image
+- [x] Skip the element which has no image
+- [ ] Able to integrate python with postgres
 
 # What I learned
 
-- Installing Python from (Installing Python 3.7 on Ubuntu with Apt)[https://linuxize.com/post/how-to-install-python-3-7-on-ubuntu-18-04/]
-
-
-
-(Pycharm)[https://www.youtube.com/watch?v=15daSz2QExo]
+- Installing Python from [Installing Python 3.7 on Ubuntu with Apt](https://linuxize.com/post/how-to-install-python-3-7-on-ubuntu-18-04/)
+- Learning how to install Postgres from [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)  
+- [Pycharm](https://www.youtube.com/watch?v=15daSz2QExo)
+- 
 
 # Problems and Solutions
-
-- Pycharm couldn’t find the interpreter. (Solution)[https://askubuntu.com/questions/1376798/cannot-use-python-3-10-as-interpreter-on-pycharm]
-- Fonts to be bigger in Pycharm. Sol: https://www.youtube.com/watch?v=xZjoLK0yuMk
+- Pycharm couldn't find the interpreter. [Solution](https://askubuntu.com/questions/1376798/cannot-use-python-3-10-as-interpreter-on-pycharm)
+- Fonts to be bigger in Pycharm. [Solution](https://www.youtube.com/watch?v=xZjoLK0yuMk)
+- Scraping information from Javascript rendered data. [So, posted a question in stackoverflow with a dummy website](https://stackoverflow.com/questions/70644352/how-to-scrape-javascript-rendered-data-from-a-website-using-scrapy)  

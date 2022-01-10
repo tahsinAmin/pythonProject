@@ -25,15 +25,18 @@ class ContentSpider(scrapy.Spider):
                     data = json.loads(try1[0])
                     demo = data.get('image')
 
-                yield {
-                    'image_link': demo,
-                    'title': title,
-                    'ratings': content.xpath('div/div/div/div/span/text()').get(),
-                    'location': content.css('span.soom-neighborhood::text').get(),
-                    'amenities': list_to_string,
-                    'price': content.css('span.soom-price::text').get(),
-                }
-                counter += 1
+                    if demo:
+                        yield {
+                            'image_link': demo,
+                            'title': title,
+                            'ratings': content.xpath('div/div/div/div/span/text()').get(),
+                            'location': content.css('span.soom-neighborhood::text').get(),
+                            'amenities': list_to_string,
+                            'price': content.css('span.soom-price::text').get(),
+                        }
+                        counter += 1
+                    else:
+                        print("Skipped an element")
             else:
                 break
 
