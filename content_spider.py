@@ -8,8 +8,6 @@ class ContentSpider(scrapy.Spider):
         'https://www.kayak.co.in/Hyderabad-Hotels.7297.hotel.ksp',
     ]
 
-    # ihbo
-
     def parse(self, response):
 
         counter = 1
@@ -20,7 +18,7 @@ class ContentSpider(scrapy.Spider):
                 list_to_string = ",".join(list1)
                 demo = content.xpath('a/img/@src').get()
 
-                if demo == None:
+                if demo is None:
                     try1 = response.xpath(f"(//script[contains(text(),'{title}')])/text()").getall()
                     data = json.loads(try1[0])
                     demo = data.get('image')
